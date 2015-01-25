@@ -1,0 +1,11 @@
+p.se-warning{
+    padding : 15px; 
+}
+
+.se-summary .field-title{
+    text-align: right;
+}
+
+.se-tabcontents {
+    padding: .5em 0;
+}

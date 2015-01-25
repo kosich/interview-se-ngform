@@ -1,0 +1,91 @@
+<form novalidate name='generalForm' class='se-tabcontents form-horizontal'>
+
+    <p class='se-warning bg-warning clearfix' ng-if='generalForm.$invalid'>
+        Please, fill in the form correctly
+    </p>
+    
+    <div class='row'>
+        <div class='col-xs-6'>
+
+            <div class="form-group form-inline" ng-class='{ "has-error" : generalForm.dateD.$touched && ( generalForm.dateD.$invalid || generalForm.dateT.$invalid ) }'>
+                <label for="formField{{f.incidentDate.name}}" class='col-sm-3'>{{ f.incidentDate.def.title }}</label>
+                <div class=" col-sm-9">
+                    <input id='formField{{f.incidentDate.name}}' name='dateD' type="text" size="10" class="form-control" ng-model='f.incidentDate.value' ng-required='f.incidentDate.def.required'  data-autoclose="1" placeholder="Date" bs-datepicker />
+                    <input name='dateT' type="text" size="8" class="form-control" ng-model='f.incidentDate.value' ng-required='f.incidentDate.def.required'  data-autoclose="1" placeholder="Time" bs-timepicker />
+                </div>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.reportedBy.$touched && generalForm.reportedBy.$invalid }'>
+                <label for="formField{{f.reportedBy.def.name}}" class='col-sm-3'>{{ f.reportedBy.def.title }}</label>
+                <div class=" col-sm-9">
+                    <input id="formField{{f.reportedBy.def.name}}" name='reportedBy' ng-model='f.reportedBy.value' ng-required='f.reportedBy.def.required'  type="text" class="form-control" placeholder="{{f.reportedBy.def.placeholder}}" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.company.$touched && generalForm.company.$invalid }'>
+                <label for="formField{{f.company.def.name}}" class='col-sm-3'>{{ f.company.def.title }}</label>
+                <div class=" col-sm-9">
+                    <select id="formField{{f.company.def.name}}" name='company' ng-model='f.company.value' ng-required='f.company.def.required' type="text" class="form-control" placeholder="{{f.company.def.placeholder}}" ng-options='option.key||option.value as option.value for option in f.company.def.options'></select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.contactPhone.$touched && generalForm.contactPhone.$invalid }'>
+                <label for="formField{{f.contactPhone.def.name}}" class='col-sm-3'>{{ f.contactPhone.def.title }}</label>
+                <div class=" col-sm-9">
+                    <input id='formField{{f.contactPhone.def.name}}' name='contactPhone' ng-pattern='contactPhonePattern' ng-model='f.contactPhone.value' ng-required='f.contactPhone.def.required' type='text' class='form-control' placeholder='{{f.contactPhone.def.placeholder}}' data-type='info' data-trigger='focus' data-placement='top' bs-enabled='f.contactPhone.def.tooltip != null' bs-tooltip='{ title : f.contactPhone.def.tooltip }' />
+
+                </div>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.supervisor.$touched && generalForm.supervisor.$invalid }'>
+                <label for="formField{{f.supervisor.def.name}}" class='col-sm-3'>{{ f.supervisor.def.title }}</label>
+                <div class=" col-sm-9">
+                    <input id="formField{{f.supervisor.def.name}}" name='supervisor' ng-model='f.supervisor.value' ng-required='f.supervisor.def.required' type="text" class="form-control" placeholder="{{f.supervisor.def.placeholder}}" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.description.$touched && generalForm.description.$invalid }'>
+                <label for="formField{{f.description.def.name}}" class='col-sm-3'>{{ f.description.def.title }}</label>
+                <div class=" col-sm-9">
+                    <textarea id="formField{{f.description.def.name}}" name='description' ng-model='f.description.value' ng-required='f.description.def.required' type="text" class="form-control" placeholder="{{f.description.def.placeholder}}" ></textarea>
+                </div>
+            </div>
+        </div>
+        <div class='col-xs-6'>
+            <div class='form-group'>
+                <h4>Well Information</h4>
+            </div>
+
+            <div class="form-group" ng-class='{ "has-error" : generalForm.wellNumber.$touched && generalForm.wellNumber.$invalid }'>
+                <label for="formField{{f.wellNumber.def.name}}" class='col-sm-3'>{{ f.wellNumber.def.title }}</label>
+                <div class=" col-sm-9">
+                    <select id="formField{{f.wellNumber.def.name}}" name='wellNumber' ng-model='f.wellNumber.value' ng-required='f.wellNumber.def.required' type="text" class="form-control" placeholder="{{f.wellNumber.def.placeholder}}" ng-options='option.key||option.value as option.value for option in f.wellNumber.def.options'></select>
+                </div>
+            </div>
+
+            <fieldset disabled>
+                <div class="form-group">
+                    <label for="formField{{f.region.def.name}}" class='col-sm-3'>{{ f.region.def.title }}</label>
+                    <div class=" col-sm-9">
+                        <input id="formField{{f.region.def.name}}" ng-model='f.region.value' ng-required='f.region.def.required' type="text" class="form-control" placeholder="{{f.region.def.placeholder}}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formField{{f.state.def.name}}" class='col-sm-3'>{{ f.state.def.title }}</label>
+                    <div class=" col-sm-9">
+                        <input id="formField{{f.state.def.name}}" ng-model='f.state.value' ng-required='f.state.def.required' type="text" class="form-control" placeholder="{{f.state.def.placeholder}}" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="formField{{f.office.def.name}}" class='col-sm-3'>{{ f.office.def.title }}</label>
+                    <div class=" col-sm-9">
+                        <input id="formField{{f.office.def.name}}" ng-model='f.office.value' ng-required='f.office.def.required' type="text" class="form-control" placeholder="{{f.office.def.placeholder}}" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <se-checkbox-group se-field='f.incidentSet' ></se-checkbox-group>
+
+        </div>
+    </div>
+</form>
