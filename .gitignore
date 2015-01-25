@@ -1,7 +1,4 @@
 *.sw*
-dist/
-.tmp/
-bower_components/
 
 # Logs
 logs
